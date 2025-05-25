@@ -1,2 +1,3 @@
 features:
   feature.HelloFeatureWorld: true
+  feature.BearerAuthorization: true
