@@ -1,4 +1,4 @@
 features:
   feature.BearerAuthorization: false
   feature.UserInfoDescription: true
-  feature.GemButton: false
+  feature.GemButton: true
