@@ -1,5 +1,5 @@
 features:
-  feature.BearerAuthorization: true
+  feature.BearerAuthorization: false
   feature.UserInfoDescription: true
   feature.GemButton: true
   feature.EarnSeal: true
