@@ -1,0 +1,7 @@
+# Feature flags for the preproduction environment.
+# Every environment file must list the same flags; the build fails otherwise.
+features:
+  feature.BearerAuthorization: true
+  feature.UserInfoDescription: true
+  feature.GemButton: true
+  feature.EarnSeal: true
