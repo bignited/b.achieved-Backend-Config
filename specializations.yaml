@@ -1,0 +1,137 @@
+# THE one place to add or change a specialization or a sub-specialization.
+#
+# Who reads this file
+#   - the frontend: names, descriptions, colours, planet looks, the specialization picker
+#   - the Playwright tests: expected names and descriptions
+#   The backend needs no list: a user may choose GLOBAL or any specialization that appears on an
+#   uploaded seal. A specialization that isn't listed here still works, with a generated name, colour
+#   and planet.
+#
+# Adding a specialization: copy an entry, change the key to the value the skill matrix uses
+# (UPPER_SNAKE_CASE, e.g. SECURITY) and fill in the fields. Nothing else needs to change.
+#
+# Fields
+#   name, description   shown in the picker and in the Nexus panel
+#   color               the specialization's colour: dots, seals and the planet's tones (hex)
+#   inPicker            offered when someone picks their own specialization (in this file's order)
+#   planet              how its planet looks (leave out for a generated look):
+#     surface           GAS (bands)  TERRA (land and water)  ICE  LAVA  ROCK  SWIRL  PLASMA (a star)
+#     features          any of CRATERS  CLOUDS  POLAR_CAPS  STORM  STREAKS  SUNSPOTS  RING  STAR
+#                       (STAR: lights itself, glows wider and sits at the centre of the Global view)
+#     colors            optional own surface colours, dark to light; left out = tones of `color`
+#     accent            optional colour of storms, streaks, sunspots and lava cracks
+#     seed              any number; changes the pattern
+#   subSpecializations  in display order; per key: name, and glowColor (the glow around its seals)
+
+specializations:
+  PERFORMANCE_TESTING:
+    name: Performance Testing
+    description: Focus on assessing how a system performs under various workloads, ensuring speed, stability, and responsiveness.
+    color: '#F28C38'
+    inPicker: true
+    planet: { surface: GAS, seed: 37 }
+    subSpecializations:
+      PERFORMANCE_TESTING_TOOLS: { name: Performance Testing Tools, glowColor: '#1E88E5' }
+
+  GLOBAL:
+    name: Global
+    description: Encompasses end-to-end quality assurance across all layers of an application, from backend to frontend, ensuring overall system quality.
+    color: '#0000FF'
+    inPicker: true
+    planet: { surface: ICE, seed: 97 }
+
+  DEVOPS:
+    name: DevOps
+    description: Focus on building, deploying, and operating software reliably through CI/CD pipelines, cloud platforms, and automation.
+    color: '#C9402C'
+    inPicker: true
+    planet: { surface: LAVA, seed: 53 }
+    subSpecializations:
+      AWS: { name: AWS, glowColor: '#0066FF' }
+      INFRASTRUCTURE_AS_CODE: { name: Infrastructure as Code, glowColor: '#00B8D9' }
+      CICD: { name: CI/CD, glowColor: '#43A047' }
+
+  SOCIALS:
+    name: Socials
+    description: Focus on social skills.
+    color: '#B07A50'
+    inPicker: true
+    planet: { surface: GAS, seed: 83, features: [RING] }
+    subSpecializations:
+      PERSONAL_SKILLS: { name: Personal Skills, glowColor: '#FFFFFF' }
+      MANAGEMENT: { name: Management, glowColor: '#FDD835' }
+
+  ISTQB:
+    name: ISTQB
+    description: Focus on internationally recognized ISTQB certifications, from core testing foundations to specialist areas such as AI, security, and Agile testing.
+    color: '#E8D8AA'
+    inPicker: true
+    planet: { surface: ROCK, seed: 71, features: [CRATERS, RING] }
+    subSpecializations:
+      CORE: { name: Core, glowColor: '#FDD835' }
+      AGILE: { name: Agile, glowColor: '#43A047' }
+      SPECIALIST: { name: Specialist, glowColor: '#00ACC1' }
+
+  TESTING:
+    name: Testing
+    description: Focus on test management and cross-browser testing tools such as Jira, Xray, Zephyr, TestRail, and BrowserStack.
+    color: '#7FD6E0'
+    inPicker: true
+    planet: { surface: ROCK, seed: 67, features: [CRATERS] }
+    subSpecializations:
+      # coral stands out against the cyan planet
+      TEST_MANAGEMENT: { name: Test Management, glowColor: '#FF8A65' }
+
+  AUTOMATION:
+    name: Automation
+    description: Focus on automating web, mobile, and API tests with tools such as Playwright, Selenium, Appium, and behavior-driven frameworks.
+    color: '#FFC21A'
+    inPicker: true
+    # the core of the job: the sun at the centre of the Global view
+    planet: { surface: PLASMA, seed: 23, accent: '#F07A16', features: [SUNSPOTS, STAR] }
+    subSpecializations:
+      BDD: { name: Behavior-Driven Development, glowColor: '#FDD835' }
+      WEB_AUTOMATION: { name: Web Automation, glowColor: '#1E88E5' }
+      MOBILE_AUTOMATION: { name: Mobile Automation, glowColor: '#D81B60' }
+      API_AUTOMATION: { name: API Automation, glowColor: '#FB8C00' }
+      TEST_AUTOMATION: { name: Test Automation, glowColor: '#8E24AA' }
+
+  DATABASE:
+    name: Databases
+    description: Focus on working with relational and NoSQL databases, including querying, data modeling, and performance tuning.
+    color: '#2F62D9'
+    inPicker: true
+    planet: { surface: ICE, seed: 41 }
+    subSpecializations:
+      RELATIONAL_DATABASES: { name: Relational Databases, glowColor: '#FB8C00' }
+      NOSQL_DATABASES: { name: NoSQL Databases, glowColor: '#43A047' }
+
+  PROGRAMMING:
+    name: Programming
+    description: Focus on programming languages and fundamentals, from JavaScript and Java to object-oriented design and algorithms.
+    color: '#4CAF50'
+    inPicker: true
+    planet: { surface: GAS, seed: 11 }
+    subSpecializations:
+      JAVASCRIPT: { name: JavaScript, glowColor: '#FDD835' }
+      TYPESCRIPT: { name: TypeScript, glowColor: '#1E88E5' }
+      CPP: { name: C++, glowColor: '#5E35B1' }
+      JAVA: { name: Java, glowColor: '#FB8C00' }
+      GO: { name: Go, glowColor: '#00ACC1' }
+      PYTHON: { name: Python, glowColor: '#FF00E6' }
+      OBJECT_ORIENTED_PROGRAMMING: { name: Object-Oriented Programming, glowColor: '#E53935' }
+      ALGORITHMS: { name: Algorithms, glowColor: '#8D6E63' }
+
+  # Kept so people who still have these stored keep working; never offered in the picker.
+  AI:
+    name: ISTQB & AI
+    description: Focus on internationally recognized ISTQB certifications, from core testing foundations to specialist areas such as AI, security, and Agile testing.
+    color: '#D81B60'
+    inPicker: false
+    planet: { surface: ROCK, seed: 71, features: [CRATERS, RING] }
+
+  NONE:
+    name: None
+    description: No specialization
+    color: 'transparent'
+    inPicker: false

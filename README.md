@@ -1,6 +1,21 @@
 # b.achieved-Backend-Config
 
-Feature flags for the b.achieved application, per environment.
+Shared configuration for the b.achieved repositories:
+
+- **`specializations.yaml`**: every specialization and sub-specialization, in one place.
+- **`feature-flags/`**: feature flags per environment.
+
+## Specializations
+
+To add or change a specialization or a sub-specialization, edit **`specializations.yaml`** only.
+The comments at the top of that file explain every field. The frontend (names, descriptions,
+colours, planet looks and the specialization picker) and the Playwright tests read it directly.
+
+The backend keeps no list: a user may choose `GLOBAL` or any specialization that appears on an
+uploaded seal. So a new specialization becomes available as soon as the skill matrix has seals for
+it, and an entry here only decides how it looks and reads.
+
+# Feature flags
 
 ## Where the flags live
 
