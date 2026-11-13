@@ -82,6 +82,18 @@ specializations:
       # coral stands out against the cyan planet
       TEST_MANAGEMENT: { name: Test Management, glowColor: '#FF8A65' }
 
+  FUNCTIONAL_TESTING:
+    name: Functional Testing
+    description: Focus on verifying that software does what the business needs, from analysing requirements and designing test cases to exploratory, regression, and user acceptance testing, without the need for coding.
+    color: '#9C6ADE'
+    inPicker: true
+    # the only TERRA planet: the human, business-facing side of testing
+    planet: { surface: TERRA, seed: 29, features: [CLOUDS] }
+    subSpecializations:
+      TEST_ANALYSIS_AND_DESIGN: { name: Test Analysis & Design, glowColor: '#FDD835' }
+      TEST_EXECUTION: { name: Test Execution, glowColor: '#43A047' }
+      BUSINESS_AND_USER: { name: Business & User, glowColor: '#FF8A65' }
+
   AUTOMATION:
     name: Automation
     description: Focus on automating web, mobile, and API tests with tools such as Playwright, Selenium, Appium, and behavior-driven frameworks.
